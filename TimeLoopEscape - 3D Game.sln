@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnityAssets", "UnityAssets", "{1B714AA4-06D5-9825-B7D5-AAAEF620013D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3D TimeLoopEscape", "3D TimeLoopEscape", "{A24229DF-B223-CD71-897F-0BBB78914159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "UnityAssets\3D TimeLoopEscape\Assembly-CSharp-Editor.csproj", "{E8FA2033-77D0-B6AE-CD88-82D75F8BBE99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "UnityAssets\3D TimeLoopEscape\Assembly-CSharp.csproj", "{77AE28A9-D693-050A-8B67-6909B7533A53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8FA2033-77D0-B6AE-CD88-82D75F8BBE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FA2033-77D0-B6AE-CD88-82D75F8BBE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FA2033-77D0-B6AE-CD88-82D75F8BBE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FA2033-77D0-B6AE-CD88-82D75F8BBE99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AE28A9-D693-050A-8B67-6909B7533A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AE28A9-D693-050A-8B67-6909B7533A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AE28A9-D693-050A-8B67-6909B7533A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77AE28A9-D693-050A-8B67-6909B7533A53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A24229DF-B223-CD71-897F-0BBB78914159} = {1B714AA4-06D5-9825-B7D5-AAAEF620013D}
+		{E8FA2033-77D0-B6AE-CD88-82D75F8BBE99} = {A24229DF-B223-CD71-897F-0BBB78914159}
+		{77AE28A9-D693-050A-8B67-6909B7533A53} = {A24229DF-B223-CD71-897F-0BBB78914159}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4615CDA-1A54-473D-B853-D2E6A2E7EE52}
+	EndGlobalSection
+EndGlobal
