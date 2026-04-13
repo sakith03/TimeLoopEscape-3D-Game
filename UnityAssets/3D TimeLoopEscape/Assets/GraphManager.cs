@@ -57,4 +57,58 @@ public class GraphManager : MonoBehaviour
 
         Debug.Log($"[GraphManager] Sampled {nodes.Count} nodes from NavMesh.");
     }
+    void BuildEdges()
+    {
+        int edgeCount = 0;
+
+        for (int a = 0; a < nodes.Count; a++)
+        {
+            for (int b = a + 1; b < nodes.Count; b++)
+            {
+                float dist = Vector3.Distance(nodes[a], nodes[b]);
+
+                // Only check nodes within max distance (performance cutoff)
+                if (dist > maxEdgeDistance) continue;
+
+                Vector3 direction = (nodes[b] - nodes[a]).normalized;
+                float rayHeight = 0.5f; // cast slightly above ground
+
+                Vector3 rayStart = nodes[a] + Vector3.up * rayHeight;
+
+                // Cast a ray between the two nodes
+                // If nothing blocks it, they can see each other -> add edge
+                if (!Physics.Raycast(rayStart, direction, dist, obstacleLayer))
+                {
+                    // Bidirectional edge: a->b and b->a
+                    adjacency[a].Add((b, dist));
+                    adjacency[b].Add((a, dist));
+                    edgeCount++;
+                }
+            }
+        }
+
+        Debug.Log($"[GraphManager] Built {edgeCount} edges.");
+    }
+
+    public Vector3 GetNodePosition(int nodeId)
+    {
+        return nodes[nodeId];
+    }
+
+    // Returns total node count (useful for A* and BFS init)
+    public int NodeCount => nodes.Count;
+
+    // TESTING: Print adjacency list to console
+    void PrintGraph()
+    {
+        for (int i = 0; i < nodes.Count; i++)
+        {
+            string line = $"Node {i} at {nodes[i]:F1} -> ";
+            foreach (var (neighbor, weight) in adjacency[i])
+            {
+                line += $"[{neighbor}, dist:{weight:F2}] ";
+            }
+            Debug.Log(line);
+        }
+    }
 }
