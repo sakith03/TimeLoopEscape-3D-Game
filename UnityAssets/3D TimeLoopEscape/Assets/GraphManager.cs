@@ -90,6 +90,46 @@ public class GraphManager : MonoBehaviour
         Debug.Log($"[GraphManager] Built {edgeCount} edges.");
     }
 
+    // Public APIs
+    // chathura (A*) and rivindu (BFS) call this every step
+    public List<(int neighbor, float weight)> GetNeighbors(int nodeId)
+    {
+        if (adjacency.ContainsKey(nodeId))
+            return adjacency[nodeId];
+        return new List<(int, float)>();
+    }
+
+    // chathura call this when a barricade is placed
+    public void RemoveEdge(int nodeA, int nodeB)
+    {
+        if (adjacency.ContainsKey(nodeA))
+            adjacency[nodeA].RemoveAll(e => e.neighbor == nodeB);
+
+        if (adjacency.ContainsKey(nodeB))
+            adjacency[nodeB].RemoveAll(e => e.neighbor == nodeA);
+
+        Debug.Log($"[GraphManager] Edge removed between node {nodeA} and {nodeB}.");
+    }
+
+    // Converts a world position to the closest node ID
+    public int NearestNode(Vector3 worldPos)
+    {
+        int closest = -1;
+        float bestDist = float.MaxValue;
+
+        for (int i = 0; i < nodes.Count; i++)
+        {
+            float d = Vector3.Distance(worldPos, nodes[i]);
+            if (d < bestDist)
+            {
+                bestDist = d;
+                closest = i;
+            }
+        }
+        return closest;
+    }
+
+    // Returns the world position of a node by its ID
     public Vector3 GetNodePosition(int nodeId)
     {
         return nodes[nodeId];
@@ -98,7 +138,7 @@ public class GraphManager : MonoBehaviour
     // Returns total node count (useful for A* and BFS init)
     public int NodeCount => nodes.Count;
 
-    // TESTING: Print adjacency list to console
+    // testing Print adjacency list to console
     void PrintGraph()
     {
         for (int i = 0; i < nodes.Count; i++)
