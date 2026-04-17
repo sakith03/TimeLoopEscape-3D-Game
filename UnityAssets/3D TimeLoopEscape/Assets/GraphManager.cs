@@ -26,6 +26,8 @@ public class GraphManager : MonoBehaviour
     void Start()
     {
         SampleNavMesh();
+        BuildEdges();
+        PrintGraph();
     }
 
     // Sample the NavMesh into discrete nodes
@@ -91,7 +93,7 @@ public class GraphManager : MonoBehaviour
     }
 
     // Public APIs
-    // chathura (A*) and rivindu (BFS) call this every step
+    // chathura(A*) and rivindu(BFS) call this every step
     public List<(int neighbor, float weight)> GetNeighbors(int nodeId)
     {
         if (adjacency.ContainsKey(nodeId))
