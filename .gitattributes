@@ -1,7 +1,6 @@
 # Unity .gitattributes
 # Set default behavior to automatically normalize line endings.
 * text=auto
-
 # Unity assets should use LF line endings
 *.asset eol=lf
 *.meta eol=lf
