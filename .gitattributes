@@ -1,0 +1,58 @@
+# Unity .gitattributes
+# Set default behavior to automatically normalize line endings.
+* text=auto
+# Unity assets should use LF line endings
+*.asset eol=lf
+*.meta eol=lf
+*.unity eol=lf
+*.prefab eol=lf
+*.mat eol=lf
+*.anim eol=lf
+*.controller eol=lf
+*.physicsMaterial eol=lf
+*.physicsMaterial2D eol=lf
+*.shadervariants eol=lf
+# C# files should use LF
+*.cs eol=lf
+# Shader files
+*.shader eol=lf
+*.cginc eol=lf
+# JSON files
+*.json eol=lf
+# YAML files
+*.yaml eol=lf
+*.yml eol=lf
+# Text files
+*.txt eol=lf
+*.md eol=lf
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bmp binary
+*.tga binary
+*.tiff binary
+*.tif binary
+*.psd binary
+*.pdf binary
+*.zip binary
+*.7z binary
+*.rar binary
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+# Unity merge driver
+*.asset merge=unityyamlmerge
+*.meta merge=unityyamlmerge
+*.unity merge=unityyamlmerge
+*.prefab merge=unityyamlmerge
+*.mat merge=unityyamlmerge
+*.anim merge=unityyamlmerge
+*.controller merge=unityyamlmerge
+*.physicsMaterial merge=unityyamlmerge
+*.physicsMaterial2D merge=unityyamlmerge
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
