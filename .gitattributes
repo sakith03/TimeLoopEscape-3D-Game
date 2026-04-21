@@ -1,7 +1,6 @@
 # Unity .gitattributes
 # Set default behavior to automatically normalize line endings.
 * text=auto
-
 # Unity assets should use LF line endings
 *.asset eol=lf
 *.meta eol=lf
@@ -56,3 +55,4 @@
 *.physicsMaterial2D merge=unityyamlmerge
 *.fbx filter=lfs diff=lfs merge=lfs -text
 *.blend filter=lfs diff=lfs merge=lfs -text
+*.exr filter=lfs diff=lfs merge=lfs -text
