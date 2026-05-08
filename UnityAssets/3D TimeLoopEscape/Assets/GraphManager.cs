@@ -140,6 +140,16 @@ public class GraphManager : MonoBehaviour
     // Returns total node count (useful for A* and BFS init)
     public int NodeCount => nodes.Count;
 
+    public List<Vector3> GetAllNodes()
+    {
+        return nodes;
+    }
+
+    public Dictionary<int, List<(int neighbor, float weight)>> GetAdjacency()
+    {
+        return adjacency;
+    }
+
     // testing Print adjacency list to console
     void PrintGraph()
     {
