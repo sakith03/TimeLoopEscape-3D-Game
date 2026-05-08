@@ -153,4 +153,22 @@ public class GraphManager : MonoBehaviour
             Debug.Log(line);
         }
     }
+    // draw nodes and edges in scene for visual testing
+    void OnDrawGizmos()
+    {
+        if (nodes == null) return;
+
+        // draw each node as a yellow sphere
+        Gizmos.color = Color.yellow;
+        foreach (var node in nodes)
+            Gizmos.DrawSphere(node, 0.15f);
+
+        // draw each edge as a cyan line
+        Gizmos.color = Color.cyan;
+        for (int a = 0; a < nodes.Count; a++)
+            foreach (var (b, w) in adjacency[a])
+                if (b > a)
+                    Gizmos.DrawLine(nodes[a], nodes[b]);
+    }
 }
+
