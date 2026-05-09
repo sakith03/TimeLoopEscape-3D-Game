@@ -112,25 +112,28 @@ public class GraphManager : MonoBehaviour
 
         Debug.Log($"[GraphManager] Edge removed between node {nodeA} and {nodeB}.");
     }
-
-    // Converts a world position to the closest node ID
-    public int NearestNode(Vector3 worldPos)
+public int NearestNode(Vector3 worldPos)
+{
+    if (nodes == null || nodes.Count == 0)
     {
-        int closest = -1;
-        float bestDist = float.MaxValue;
-
-        for (int i = 0; i < nodes.Count; i++)
-        {
-            float d = Vector3.Distance(worldPos, nodes[i]);
-            if (d < bestDist)
-            {
-                bestDist = d;
-                closest = i;
-            }
-        }
-        return closest;
+        Debug.LogError("[GraphManager] Nodes list eka empty! SampleNavMesh() hariyata run unada balanna.");
+        return -1;
     }
 
+    int closest = -1;
+    float bestDist = float.MaxValue;
+
+    for (int i = 0; i < nodes.Count; i++)
+    {
+        float d = Vector3.Distance(worldPos, nodes[i]);
+        if (d < bestDist)
+        {
+            bestDist = d;
+            closest = i;
+        }
+    }
+    return closest;
+}
     // Returns the world position of a node by its ID
     public Vector3 GetNodePosition(int nodeId)
     {
