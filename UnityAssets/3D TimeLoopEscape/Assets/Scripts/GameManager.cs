@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Loop Settings")]
     public float loopDuration = 40f;
     private float timer;
+
+    [Header("UI")]
+    public TMP_Text timerText;
 
     [Header("Main Character")]
     public Transform mainCharacter;
@@ -43,11 +47,23 @@ public class GameManager : MonoBehaviour
 
         // Find all doors
         doors = FindObjectsOfType<DoorController>();
+
+        // Initial timer display
+        if (timerText != null)
+        {
+            timerText.text = "Time Left: " + Mathf.Ceil(timer).ToString();
+        }
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
+
+        // Update timer UI
+        if (timerText != null)
+        {
+            timerText.text = "Time Left: " + Mathf.Ceil(timer).ToString();
+        }
 
         if (timer <= 0f)
         {
