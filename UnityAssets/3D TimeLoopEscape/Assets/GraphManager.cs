@@ -116,7 +116,7 @@ public int NearestNode(Vector3 worldPos)
 {
     if (nodes == null || nodes.Count == 0)
     {
-        Debug.LogError("[GraphManager] Nodes list eka empty! SampleNavMesh() hariyata run unada balanna.");
+        Debug.LogError("[GraphManager] Nodes list is empty! SampleNavMesh() ");
         return -1;
     }
 
