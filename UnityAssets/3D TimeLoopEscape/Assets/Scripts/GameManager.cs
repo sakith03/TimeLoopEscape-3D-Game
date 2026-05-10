@@ -11,6 +11,18 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TMP_Text timerText;
 
+    [Header("Win UI")]
+    public TMP_Text winText;
+
+    [Header("Lose UI")]
+    public TMP_Text loseText;
+
+    [HideInInspector]
+    public bool gameWon = false;
+
+    [HideInInspector]
+    public bool gameLost = false;
+
     [Header("Main Character")]
     public Transform mainCharacter;
     public Transform mainCharacterSpawn;
@@ -31,6 +43,10 @@ public class GameManager : MonoBehaviour
     {
         timer = loopDuration;
 
+        // Hide UI at start
+        if (winText != null) winText.enabled = false;
+        if (loseText != null) loseText.enabled = false;
+
         // Player spawn
         if (mainCharacterSpawn != null)
         {
@@ -45,25 +61,18 @@ public class GameManager : MonoBehaviour
             npcStartRotation = npcSpawn.rotation;
         }
 
-        // Find all doors
         doors = FindObjectsOfType<DoorController>();
 
-        // Initial timer display
-        if (timerText != null)
-        {
-            timerText.text = "Time Left: " + Mathf.Ceil(timer).ToString();
-        }
+        UpdateTimerUI();
     }
 
     void Update()
     {
+        if (gameWon || gameLost) return;
+
         timer -= Time.deltaTime;
 
-        // Update timer UI
-        if (timerText != null)
-        {
-            timerText.text = "Time Left: " + Mathf.Ceil(timer).ToString();
-        }
+        UpdateTimerUI();
 
         if (timer <= 0f)
         {
@@ -71,11 +80,49 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            timerText.text = "Time Left: " + Mathf.Ceil(timer).ToString();
+        }
+    }
+
+    // WIN
+    public void WinGame()
+    {
+        if (gameLost) return;
+
+        gameWon = true;
+
+        if (winText != null)
+        {
+            winText.enabled = true;
+            winText.text = "YOU WON";
+        }
+
+        Debug.Log("PLAYER WON");
+    }
+
+    // LOSE
+    public void LoseGame()
+    {
+        if (gameWon) return;
+
+        gameLost = true;
+
+        if (loseText != null)
+        {
+            loseText.enabled = true;
+            loseText.text = "YOU LOST";
+        }
+
+        Debug.Log("PLAYER LOST");
+    }
+
     void ResetLoop()
     {
         timer = loopDuration;
-
-        Debug.Log("🔁 Full Loop Reset");
 
         ResetMainCharacter();
         ResetNPC();
@@ -129,11 +176,6 @@ public class GameManager : MonoBehaviour
             agent.ResetPath();
             agent.enabled = true;
         }
-
-        // If you have custom Graph logic,
-        // call its reset function here if needed.
-        // Example:
-        // npcGhost.GetComponent<Pathfinding_Logic>()?.ResetPath();
     }
 
     void ResetDoors()

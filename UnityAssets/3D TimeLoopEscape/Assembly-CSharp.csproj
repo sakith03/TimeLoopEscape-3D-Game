@@ -52,8 +52,10 @@
     <Compile Include="Assets\AStarPathfinder.cs" />
     <Compile Include="Assets\Scripts\DoorInteractable.cs" />
     <Compile Include="Assets\Scripts\FlickerLight.cs" />
+    <Compile Include="Assets\Scripts\EnemyCollision.cs" />
     <Compile Include="Assets\Scripts\FirstPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Debug\DebugVisualizer.cs" />
+    <Compile Include="Assets\Scripts\ExitDoor.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\NPCController.cs" />
     <Compile Include="Assets\Character\PlayerMovement.cs" />
