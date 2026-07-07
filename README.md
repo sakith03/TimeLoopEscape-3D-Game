@@ -17,6 +17,9 @@ The objective is to escape the loop by solving small environmental puzzles, inte
 * 🌍 Designed 3D environment with lighting and textures
 
 ---
+## Characters
+
+<img width="1045" height="884" alt="Screenshot 2026-06-02 114857" src="https://github.com/user-attachments/assets/12b2e609-6251-405d-b878-6299c3155542" />
 
 ## 🛠️ Technologies Used
 
@@ -31,6 +34,10 @@ The objective is to escape the loop by solving small environmental puzzles, inte
 3. Click **Play** to start the game
 
 ---
+
+# In game screenshots
+
+
 
 ## 🎯 Objective
 
