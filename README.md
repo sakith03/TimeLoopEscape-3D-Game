@@ -37,6 +37,12 @@ The objective is to escape the loop by solving small environmental puzzles, inte
 
 # In game screenshots
 
+* <img width="1025" height="639" alt="Screenshot 2026-07-07 192510" src="https://github.com/user-attachments/assets/96048329-b118-4135-bc3d-31ce8a5a42c4" />
+* <img width="1857" height="992" alt="Screenshot 2026-07-07 192737" src="https://github.com/user-attachments/assets/28f7fabe-745f-4adc-9d1e-cd3dd754bcdb" />
+* <img width="1838" height="989" alt="Screenshot 2026-07-07 192706" src="https://github.com/user-attachments/assets/43d5be58-5aaf-4e99-ac71-46cbd103f96b" />
+* <img width="1849" height="991" alt="Screenshot 2026-07-07 192947" src="https://github.com/user-attachments/assets/a2617b70-0fc1-4f51-a98d-dec593ed6f7d" />
+* <img width="1845" height="991" alt="Screenshot 2026-07-07 192910" src="https://github.com/user-attachments/assets/fc5886aa-c1ba-4611-b1c8-666f02168b63" />
+
 
 
 ## 🎯 Objective
